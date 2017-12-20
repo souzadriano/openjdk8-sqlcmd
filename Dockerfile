@@ -6,7 +6,9 @@ ENV ACCEPT_EULA=Y
 ENV LANG C.UTF-8
 
 RUN apt-get update && \
-	apt-get install -y curl apt-transport-https && \
+	apt-get install -y curl apt-transport-https locales && \
+	echo "en_US.UTF-8 UTF-8" > /etc/locale.gen && \
+    	locale-gen && \
 	curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add - && \
 	curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list | tee /etc/apt/sources.list.d/msprod.list && \
 	apt-get update && \
