@@ -17,3 +17,5 @@ RUN apt-get update && \
 	ln -sfn /opt/mssql-tools/bin/bcp /usr/bin/bcp
 	
 RUN apt-get install -y openjdk-8-jre
+
+RUN apt-get install -y ssh-client
